@@ -41,7 +41,7 @@ In this mode electron-builder calls the hook for `MyApp.exe` and then for the NS
 
 | Variable | Meaning |
 |---|---|
-| `BAMBOO_API_KEY` | Required. `bd_live_...` key from the dashboard, API Keys page |
+| `BAMBOO_API_KEY` | `bd_live_...` key from the dashboard, API Keys page. Or put `BAMBOO_API_KEY=...` in a `.bamboorc` file in the project or home folder |
 | `BAMBOO_TIMEOUT` | Seconds to wait for signing (default 900) |
 | `BAMBOO_SKIP` | Set to `1` to build without signing (local dev) |
 

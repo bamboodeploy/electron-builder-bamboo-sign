@@ -1,13 +1,13 @@
 'use strict';
 const path = require('path');
-const { signFile } = require('@bamboodeploy/cli');
+const { signFile, resolveKey } = require('@bamboodeploy/cli');
 
 const WIN_EXT = /\.(exe|msi)$/i;
 const log = m => console.log(`  • bamboo: ${m}`);
 
 function enabled() {
   if (process.env.BAMBOO_SKIP === '1') return false;
-  if (!process.env.BAMBOO_API_KEY) { log('BAMBOO_API_KEY not set, skipping signing'); return false; }
+  if (!resolveKey()) { log('no API key (set BAMBOO_API_KEY or create .bamboorc), skipping signing'); return false; }
   return true;
 }
 
