@@ -1,0 +1,15 @@
+{
+  "name": "electron-builder-bamboo-sign",
+  "version": "1.0.0",
+  "description": "electron-builder hook that code-signs your Windows installer and exe with Bamboo Deploy. No certificate or HSM needed.",
+  "license": "MIT",
+  "main": "index.js",
+  "files": ["index.js", "sign.js", "README.md"],
+  "engines": { "node": ">=18" },
+  "dependencies": { "@bamboodeploy/cli": "github:bamboodeploy/cli#v1.0.0" },
+  "peerDependencies": { "electron-builder": ">=23" },
+  "peerDependenciesMeta": { "electron-builder": { "optional": true } },
+  "repository": { "type": "git", "url": "https://github.com/bamboodeploy/electron-builder-bamboo-sign" },
+  "homepage": "https://www.bamboodeploy.com/docs/#electron",
+  "keywords": ["electron-builder", "code-signing", "windows", "smartscreen", "authenticode", "nsis"]
+}
