@@ -45,11 +45,11 @@ In this mode electron-builder calls the hook for `MyApp.exe` and then for the NS
 | `BAMBOO_TIMEOUT` | Seconds to wait for signing (default 900) |
 | `BAMBOO_SKIP` | Set to `1` to build without signing (local dev) |
 
-After your first reviewed build, ask Bamboo to enable **Auto-sign** on your account so builds with a clean scan sign in a couple of minutes instead of waiting for manual review. Signing needs a Premium subscription ($45 per quarter); scanning is free.
+Signing needs a Premium subscription ($45 per quarter); scanning is free.
 
 ## Why this instead of a cert
 
-An OV cert costs $200 to $400 a year and still needs weeks of downloads to earn SmartScreen reputation. An EV cert costs more, ships on hardware, and has to live on a machine you build from. Bamboo signs with a certificate that already has reputation and runs a multi-engine malware scan on every build first. Read more: [Electron apps and Windows Defender](https://www.bamboodeploy.com/blog/electron-apps-windows-defender/).
+An OV cert costs $200 to $400 a year and still needs weeks of downloads to earn SmartScreen reputation. An EV cert costs more, ships on hardware, and has to live on a machine you build from. Bamboo signs with a certificate that has an existing signing history, and scans every build first. Read more: [Electron apps and Windows Defender](https://www.bamboodeploy.com/blog/electron-apps-windows-defender/).
 
 ## License
 
