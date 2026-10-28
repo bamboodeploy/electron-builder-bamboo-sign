@@ -23,17 +23,19 @@ Set `BAMBOO_API_KEY` in your environment (locally or as a CI secret), then:
 npx electron-builder --win
 ```
 
-Every `.exe` and `.msi` artifact in `dist/` is uploaded, scanned, signed, and written back in place. The `latest.yml` auto-update manifest is generated before this hook runs, so if you use electron-updater, regenerate the hash: run the hook via the `win.sign` mode below instead.
+Every `.exe` and `.msi` artifact in `dist/` is uploaded, scanned, signed, and written back in place. The `latest.yml` auto-update manifest is generated before this hook runs, so if you use electron-updater, regenerate the hash: run the hook via the custom sign mode below instead.
 
 ## Signing the app exe too (electron-updater friendly)
 
 ```json
 {
   "build": {
-    "win": { "sign": "electron-builder-bamboo-sign/sign" }
+    "win": { "signtoolOptions": { "sign": "electron-builder-bamboo-sign/sign" } }
   }
 }
 ```
+
+That is the form for electron-builder 26 and newer, which rejects `win.sign`. On electron-builder 25 or older use `"win": { "sign": "electron-builder-bamboo-sign/sign" }`.
 
 In this mode electron-builder calls the hook for `MyApp.exe` and then for the NSIS installer, so both are signed and the `latest.yml` hashes match. Use one mode or the other, not both.
 
